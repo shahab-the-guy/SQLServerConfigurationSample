@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConfiguration", "SampleConfiguration\SampleConfiguration.csproj", "{133364ED-B02C-4DDE-9E6F-954640516F8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLServerConfigurationSample", "SQLServerConfigurationSample\SQLServerConfigurationSample.csproj", "{133364ED-B02C-4DDE-9E6F-954640516F8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
