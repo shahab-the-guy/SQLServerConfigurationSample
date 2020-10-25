@@ -17,7 +17,7 @@ namespace SQLServerConfigurationSample
                 .ConfigureAppConfiguration(configure =>
                 {
                     configure.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                    configure.AddSqlServerDb(true, true);
+                    configure.AddSqlServerDb();
                 })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }
