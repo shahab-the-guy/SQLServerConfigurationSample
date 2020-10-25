@@ -11,7 +11,9 @@ namespace SQLServerConfigurationSample.SqlServerConfiguration
         public string Table { get; set; } = "dbo.Configuration";
         public string KeyColumn { get; set; } = "Key";
         public string ValueColumn { get; set; } = "Value";
-        
+
+        public bool Optional { get; set; } = true;
+
         public IConfigurationProvider Build(IConfigurationBuilder builder)
             => new SqlServerConfigurationProvider(this);
     }

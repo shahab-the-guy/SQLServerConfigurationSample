@@ -22,30 +22,40 @@ namespace SQLServerConfigurationSample.SqlServerConfiguration
         
         public override void Load()
         {
-            var fetchQuery = $"SELECT  " +
-                             $"c.[{_configurationSource.KeyColumn}] as 'Key' , " +
-                             $"c.[{_configurationSource.ValueColumn}] as 'Value'  " +
-                             $"FROM   {_configurationSource.Table} as c";
-
-            var sqlCommand = _sqlConnection.CreateCommand();
-            sqlCommand.CommandText = fetchQuery;
-            
-            if(sqlCommand.Connection.State != ConnectionState.Open) _sqlConnection.Open();
-
-            var reader = sqlCommand.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                var key = reader.GetString("Key");
-                var value = reader.GetString("Value");
-                
-                this.Data.Add(key,value);
+                var fetchQuery = $"SELECT  " +
+                                 $"c.[{_configurationSource.KeyColumn}] as 'Key' , " +
+                                 $"c.[{_configurationSource.ValueColumn}] as 'Value'  " +
+                                 $"FROM   {_configurationSource.Table} as c";
+
+                var sqlCommand = _sqlConnection.CreateCommand();
+                sqlCommand.CommandText = fetchQuery;
+
+                if (sqlCommand.Connection.State != ConnectionState.Open) _sqlConnection.Open();
+
+                var reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var key = reader.GetString("Key");
+                    var value = reader.GetString("Value");
+
+                    this.Data.Add(key, value);
+                }
+
+                reader.Close();
             }
-            
-            reader.Close();
-            
-            if( sqlCommand.Connection.State != ConnectionState.Closed )
-                sqlCommand.Connection.Close();
+            catch (Exception ex)
+            {
+                if (!this._configurationSource.Optional)
+                    throw;
+            }
+            finally
+            {
+                if( _sqlConnection.State != ConnectionState.Closed )
+                    _sqlConnection.Close();
+            }
         }
 
 
