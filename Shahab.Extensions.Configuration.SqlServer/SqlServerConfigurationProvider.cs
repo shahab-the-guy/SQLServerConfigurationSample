@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace SQLServerConfigurationSample.SqlServerConfiguration
+namespace Shahab.Extensions.Configuration.SqlServer
 {
     public class SqlServerConfigurationProvider : ConfigurationProvider , IDisposable
     {

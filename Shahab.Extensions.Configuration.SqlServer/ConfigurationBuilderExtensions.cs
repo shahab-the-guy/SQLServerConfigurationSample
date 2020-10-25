@@ -1,8 +1,7 @@
 using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.Extensions.Configuration;
 
-namespace SQLServerConfigurationSample.SqlServerConfiguration
+namespace Shahab.Extensions.Configuration.SqlServer
 {
     public static class ConfigurationBuilderExtensions
     {

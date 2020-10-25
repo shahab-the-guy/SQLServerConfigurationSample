@@ -8,4 +8,8 @@
       <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Shahab.Extensions.Configuration.SqlServer\Shahab.Extensions.Configuration.SqlServer.csproj" />
+    </ItemGroup>
+
 </Project>

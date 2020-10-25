@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using SQLServerConfigurationSample.SqlServerConfiguration;
+using Shahab.Extensions.Configuration.SqlServer;
 
 namespace SQLServerConfigurationSample
 {
